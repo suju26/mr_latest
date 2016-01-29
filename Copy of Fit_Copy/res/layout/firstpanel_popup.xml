@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Muscle Reboot needs some basic information about you to get calculating!"
+        android:text="Muscle Reboot needs some basic information about you to get calculating!You can get an indication of whether your weight may be affecting your health. It is commonly used by Doctors and health professionals worldwide and is calculated using your weight and height. "
         android:textSize="15dp"
         android:typeface="monospace" />
 
