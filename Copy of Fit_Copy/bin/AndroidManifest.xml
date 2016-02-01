@@ -159,6 +159,10 @@
             android:parentActivityName="at.fhjoanneum.ima.project.musclerebbot.Your_Profile_Fragment"
             android:theme="@style/AppTheme.CustomTheme" >
         </activity>
+        <activity
+            android:name="at.fhjoanneum.ima.project.musclerebbot.Nutrition"
+            android:parentActivityName="at.fhjoanneum.ima.project.musclerebbot.Your_Profile_Fragment" >
+        </activity>
     </application>
 
 </manifest>

@@ -74,7 +74,7 @@ public class Macro_Required_Fragment extends Activity {
 
 		Log.e("", "namdev Astatus  "+Astatus);
 
-		tdee_result=(TextView)findViewById(R.id.txt_result);
+		//tdee_result=(TextView)findViewById(R.id.txt_result);
 
 		your_goal.setText(""+Astatus);
 		// Spinner click listener

@@ -40,22 +40,22 @@ public class Your_Goal_Fragment extends Activity {
 	double your_pro,your_carbs,your_fats;
 	TextView txt_macro_fats_percentage_manual;
 	TextView txt_macro_carbs_percentage_manual;
+	int goal_position;
 
 
 
-	public Your_Goal_Fragment(){}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_your_goal);
+		setContentView(R.layout.fragment_your_nutrition);
 
 		sharedpreferences = this.getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+		goal_position=sharedpreferences.getInt("goal_health_position", 0);
 		Astatus = sharedpreferences.getString("bmr_key", "0");
 		Log.e("", "namdev Astatus  "+Astatus);
 
-		tdee_result=(TextView)findViewById(R.id.txt_result);
 
 		tdee_result.setText(""+Astatus);
 
@@ -85,7 +85,7 @@ public class Your_Goal_Fragment extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				selectedgoal=parent.getItemAtPosition(position).toString();	
+				selectedgoal=parent.getItemAtPosition(goal_position).toString();	
 
 
 				//TDEE Calculation Based on Goal Selected
@@ -143,7 +143,7 @@ public class Your_Goal_Fragment extends Activity {
 
 
 		//Choose your Nutritional Plan
-		Button btn_nutrition=(Button)findViewById(R.id.btn_nutrtional_plan);
+		/*Button btn_nutrition=(Button)findViewById(R.id.btn_nutrtional_plan);
 		btn_nutrition.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -151,17 +151,17 @@ public class Your_Goal_Fragment extends Activity {
 				on_nutri();
 			}
 		});
-
+*/
 		//Back to Profile
 
-		Button btn_bck_pro=(Button)findViewById(R.id.btn_back_profile);
+		/*Button btn_bck_pro=(Button)findViewById(R.id.btn_back_profile);
 		btn_bck_pro.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				on_bck_pro();
 			}
-		});
+		});*/
 
 
 

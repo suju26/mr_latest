@@ -143,6 +143,16 @@
                         android:ems="10"
                         android:inputType="number" />
 
+                    <TextView
+                        android:id="@id/textView24"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1.0"
+                        android:paddingLeft="2.0dip"
+                        android:text="ft"
+                        android:textAppearance="?android:textAppearanceMedium" />
+
                     <EditText
                         android:id="@id/profile_ui_height_inch"
                         android:layout_width="0.0dip"
@@ -190,8 +200,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="80.0"
                         android:ems="10"
-                        android:inputType="number"
-                        android:selectAllOnFocus="true" />
+                        android:inputType="number" />
 
                     <TextView
                         android:id="@id/profile_weight_label"
