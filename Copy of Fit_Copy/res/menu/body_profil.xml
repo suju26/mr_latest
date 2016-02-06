@@ -8,6 +8,7 @@
         android:title="@string/submit"
         android:orderInCategory="1"
         android:showAsAction="always"
-        android:visible="true">
+        android:visible="true"
+        android:textColor="@color/white">
     </item>
 </menu>

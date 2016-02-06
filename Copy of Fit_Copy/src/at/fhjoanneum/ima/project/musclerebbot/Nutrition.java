@@ -2,6 +2,7 @@ package at.fhjoanneum.ima.project.musclerebbot;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -175,4 +176,12 @@ public class Nutrition extends Activity{
 
 
 	}
+	@Override
+	public void onBackPressed() {
+		Intent i_back_to_main = new Intent(this, Your_Profile_Fragment.class);
+		startActivity(i_back_to_main);
+		finish();
+
+	}
+
 }

@@ -23,7 +23,9 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Build;
 import at.fhjoanneum.ima.project.database.MyDataBaseHelper;
 import at.fhjoanneum.ima.project.database.tables.ExerciseTable;
@@ -43,9 +45,9 @@ public class Exercises extends ListActivity implements Serializable {
 	private Menu menu;
 
 	private static class ViewHolder {
-		public Button sort_alpha;
+		public ImageButton sort_alpha;
 		public ImageButton sort_muscles;
-		public ImageButton sort_user;
+		//public ImageButton sort_user;
 
 		public ImageView select_line;
 		public ImageView select_line2;
@@ -88,7 +90,7 @@ public class Exercises extends ListActivity implements Serializable {
 			i.putExtra(EXERCISE, (Serializable) selected);
 			startActivity(i);
 
-		} else if (views.select_line2.getVisibility() == View.VISIBLE) {
+		} else if (views.select_line2.getVisibility() == View.INVISIBLE) {
 
 			if (musclegroup.getText().toString().length() > 1) {
 				Intent i = new Intent(this, ExerciseViewer.class);
@@ -119,16 +121,16 @@ public class Exercises extends ListActivity implements Serializable {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_exercises);
-		views.sort_alpha = (Button) findViewById(R.id.sort_alphabethic);
+		views.sort_alpha = (ImageButton) findViewById(R.id.sort_alphabethic);
 		views.sort_muscles = (ImageButton) findViewById(R.id.sort_muscle);
-		views.sort_user = (ImageButton) findViewById(R.id.sort_user);
+		//views.sort_user = (ImageButton) findViewById(R.id.sort_user);
 		views.select_line = (ImageView) findViewById(R.id.select_line);
 		views.select_line2 = (ImageView) findViewById(R.id.select_line2);
 		views.select_line3 = (ImageView) findViewById(R.id.select_line3);
 
 		views.sort_alpha.setEnabled(false);
 		views.sort_muscles.setEnabled(true);
-		views.sort_user.setEnabled(true);
+		//views.sort_user.setEnabled(true);
 		views.select_line.setVisibility(View.VISIBLE);
 		views.select_line2.setVisibility(View.INVISIBLE);
 		views.select_line3.setVisibility(View.INVISIBLE);
@@ -323,7 +325,7 @@ public class Exercises extends ListActivity implements Serializable {
 			add.setIcon(R.drawable.search_icon);
 			views.sort_alpha.setEnabled(true);
 			views.sort_muscles.setEnabled(true);
-			views.sort_user.setEnabled(true);
+			//views.sort_user.setEnabled(true);
 			views.select_line.setVisibility(View.VISIBLE);
 			views.select_line2.setVisibility(View.INVISIBLE);
 			views.select_line3.setVisibility(View.INVISIBLE);
@@ -339,10 +341,10 @@ public class Exercises extends ListActivity implements Serializable {
 			add.setIcon(R.drawable.search_icon_gray);
 			views.sort_alpha.setEnabled(true);
 			views.sort_muscles.setEnabled(true);
-			views.sort_user.setEnabled(true);
+			//views.sort_user.setEnabled(true);
 			views.select_line.setVisibility(View.INVISIBLE);
-			views.select_line2.setVisibility(View.VISIBLE);
-			views.select_line3.setVisibility(View.INVISIBLE);
+			views.select_line2.setVisibility(View.INVISIBLE);
+			views.select_line3.setVisibility(View.VISIBLE);
 			
 
 			setExerciseListAdapter(
@@ -351,7 +353,7 @@ public class Exercises extends ListActivity implements Serializable {
 							MyHelper.getData("select distinct trim(PrimMuscleGroups) from 't_exercises' ORDER BY PrimMuscleGroups COLLATE NOCASE"),
 							columnsM));
 			break;
-
+/*
 		case R.id.sort_user:
 			add.setEnabled(false);
 			add.setIcon(R.drawable.search_icon_gray);
@@ -363,7 +365,7 @@ public class Exercises extends ListActivity implements Serializable {
 			views.select_line3.setVisibility(View.VISIBLE);
 			setExerciseListAdapter(columnsA,
 					getExercisesInUserObjectOrder(columnsA));
-			break;
+			break;*/
 		}
 	}
 	
@@ -371,6 +373,7 @@ public class Exercises extends ListActivity implements Serializable {
 	public void onBackPressed() {
 		Intent i_back_to_main = new Intent(this, MainActivity.class);
 		startActivity(i_back_to_main);
+		finish();
 	}
 
 }

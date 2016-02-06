@@ -73,6 +73,7 @@
             android:layout_weight="30"
             android:background="@drawable/ripple"
             android:onClick="mainMenuButtonOnClick"
+            android:paddingLeft="10sp"
             android:text="Exercise Instruction"
             android:textColor="#D32F2F"
             android:typeface="monospace" />
@@ -84,6 +85,7 @@
             android:layout_weight="30"
             android:background="@drawable/ripple"
             android:onClick="mainMenuButtonOnClick"
+            android:paddingLeft="10sp"
             android:text="Body Profile"
             android:textColor="#D32F2F"
             android:typeface="monospace" />

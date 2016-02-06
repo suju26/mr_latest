@@ -185,19 +185,11 @@ public class Your_Goal_Fragment extends Activity {
 			startActivity(intent);
 		}
 	}
-	public void on_bck_pro()
-	{
-
-
-		/*
-		Fragment fragment = new Your_Profile_Fragment();
-		// Insert the fragment by replacing any existing fragment
-		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction()
-		.replace(R.id.frame_container, fragment)
-		.commit();*/
+	@Override
+	public void onBackPressed() {
+		Intent i_back_to_main = new Intent(this, Your_Profile_Fragment.class);
+		startActivity(i_back_to_main);
 	}
-
 
 
 }

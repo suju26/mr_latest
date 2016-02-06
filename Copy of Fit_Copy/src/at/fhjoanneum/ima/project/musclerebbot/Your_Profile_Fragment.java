@@ -295,7 +295,12 @@ public class Your_Profile_Fragment extends Activity {
 		startActivity(new Intent(this,First_panel_popup.class));
 
 	}
-
+	@Override
+	public void onBackPressed() {
+		Intent i_back_to_main = new Intent(this, MainActivity.class);
+		startActivity(i_back_to_main);
+		finish();
+	}
 
 }
 

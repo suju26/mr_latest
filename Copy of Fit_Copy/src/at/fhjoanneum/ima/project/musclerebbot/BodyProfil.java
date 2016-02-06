@@ -195,6 +195,7 @@ public class BodyProfil extends Activity {
 	public void onBackPressed() {
 		Intent i_back_to_main = new Intent(this, MainActivity.class);
 		startActivity(i_back_to_main);
+		finish();
 	}
 
 }

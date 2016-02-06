@@ -82,5 +82,9 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, Weightgain_week1_day1.class);
 		startActivity(intent);
 	}
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
 
 }
