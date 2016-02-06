@@ -5,27 +5,29 @@
     android:background="@color/white"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:scrollbars="none">
+    android:scrollbars="none" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical"
-        tools:context=".ExerciseViewer"
-        android:background="@color/white" >
+        tools:context=".ExerciseViewer" >
 
         <TextView
             android:id="@+id/exersice_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp" />
+            android:textColor="#D32F2F"
+            android:textSize="30sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/exercise_muscles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/icon_color_blue"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:typeface="monospace" />
 
         <ImageView
             android:id="@+id/animationView"
@@ -38,8 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/equipment"
-            android:textColor="@color/icon_color_blue"
-            android:textSize="25sp" />
+            android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/exersice_equipment"
@@ -52,8 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/steps"
-            android:textColor="@color/icon_color_blue"
-            android:textSize="25sp" />
+            android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/exersice_steps"
@@ -66,8 +70,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tips"
-            android:textColor="@color/icon_color_blue"
-            android:textSize="25sp" />
+            android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/exersice_tips"

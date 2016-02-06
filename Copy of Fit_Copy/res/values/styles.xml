@@ -11,9 +11,9 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
-        <item name="android:colorPrimary">#03A9F4</item>
-        <item name="android:colorPrimaryDark">#0288D1</item>
-        <item name="android:colorAccent">#448AFF</item>
+        <item name="android:colorPrimary">#D32F2F</item>
+        <item name="android:colorPrimaryDark">#F44336</item>
+        <item name="android:colorAccent">#9E9E9E</item>
         <item name="android:fontFamily">monospace</item>
         <item name="android:typeface">monospace</item>
     </style>

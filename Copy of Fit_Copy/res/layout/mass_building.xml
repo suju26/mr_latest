@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/intro"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ripple"
+        android:gravity="center"
+        android:text="About Workout Plans"
+        android:textSize="10dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/Week_1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ripple"
+        android:gravity="center"
+        android:text="WEEK 1: HEAVY HITTER"
+        android:textSize="10dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/Week_2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ripple"
+        android:gravity="center"
+        android:text="WEEK 2: HEAVY HITTER"
+        android:textSize="10dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/Week_3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ripple"
+        android:gravity="center"
+        android:text="WEEK 3: INTENSITY BOOST"
+        android:textSize="10dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/Week_4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ripple"
+        android:gravity="center"
+        android:text="WEEK 4: INTENSITY BOOST"
+        android:textSize="10dp"
+        android:typeface="monospace" />
+
+</LinearLayout>

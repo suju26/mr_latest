@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg" >
 
     <LinearLayout
         android:id="@+id/macro"
@@ -262,42 +263,42 @@
                         android:textColor="@color/result_color" />
                 </LinearLayout>
             </LinearLayout>
-<LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical"
-            android:padding="5.0dip" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:padding="5.0dip" >
+
+                <Button
+                    android:id="@+id/btn_save_macro"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#635fd0"
+                    android:padding="5.0dip"
+                    android:text="Save Now"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/white" />
+
+                <View
+                    android:id="@id/view1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.0dip"
+                    android:layout_alignTop="@id/text_current_playback_title"
+                    android:background="@android:color/darker_gray" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_save_macro"
+                android:id="@+id/btn_back_goal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="#635fd0"
                 android:padding="5.0dip"
-                android:text="Save Now"
+                android:text="Back To Goal"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@android:color/white" />
-
-            <View
-                android:id="@id/view1"
-                android:layout_width="fill_parent"
-                android:layout_height="2.0dip"
-                android:layout_alignTop="@id/text_current_playback_title"
-                android:background="@android:color/darker_gray" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_back_goal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="#635fd0"
-            android:padding="5.0dip"
-            android:text="Back To Goal"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-
     </LinearLayout>
 
 </ScrollView>

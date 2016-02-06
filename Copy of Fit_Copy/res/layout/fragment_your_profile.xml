@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
 
     <LinearLayout
         android:id="@id/card_parent_layout"
@@ -26,12 +27,12 @@
                     android:id="@id/textView_first"
                     android:layout_width="0.0dip"
                     android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center"
                     android:layout_weight="0.85"
                     android:background="@drawable/ripple"
                     android:text="Profile"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textColor="#D32F2F" />
 
                 <Button
                     android:id="@id/profile_help"
@@ -42,7 +43,7 @@
                     android:onClick="first_panel_help"
                     android:text="!"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textColor="#D32F2F" />
             </LinearLayout>
 
             <LinearLayout
@@ -249,7 +250,7 @@
                     android:layout_gravity="center"
                     android:padding="50.0dip"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/black" />
+                    android:textColor="#D32F2F" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -269,7 +270,7 @@
             android:onClick="bmi_calculation"
             android:padding="10.0dip"
             android:text="Done"
-            android:textColor="@android:color/white" />
+            android:textColor="#D32F2F" />
     </LinearLayout>
 
 </RelativeLayout>

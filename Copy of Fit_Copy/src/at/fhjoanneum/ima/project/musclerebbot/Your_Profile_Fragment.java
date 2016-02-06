@@ -41,9 +41,10 @@ public class Your_Profile_Fragment extends Activity {
 	double height_ft_to_cm,height_inch_cm,age_input,height_input,weight_input,cm_to_meter,bmi_result;
 	String age_text_view,weight_string;
 	TextView bmi_text;
-	int goal_health;
+	
 	Button btw;
-	int goal_diet;
+	
+	String r_goal_h,r_goal_d;
 	public Your_Profile_Fragment(){}
 
 
@@ -141,16 +142,9 @@ public class Your_Profile_Fragment extends Activity {
 
 		String age_string=age.getText().toString();
 		String height_string=height_ft.getText().toString();
+		String height_inch_cm=height_inch.getText().toString();
 		String weight_string=weight.getText().toString();
-		Log.e("", "first spinner "+age_string+""+height_string+""+weight_string+""+radioSexButton+""+selected_Activity_level);
 
-
-		/*if(age_string.equals("")||height_string.equals("")||weight_string.equals("")||radioSexButton.equals("")){
-
-			Toast.makeText(this, "Enter all Required Details",
-					Toast.LENGTH_SHORT).show();
-
-		}else{*/
 			if(selected_Activity_level.equals("Select Your Activity Level"))
 			{
 				Toast.makeText(this, "Please Select your Activity Level",
@@ -158,7 +152,10 @@ public class Your_Profile_Fragment extends Activity {
 			}else{
 				double age_input= Double.parseDouble(age_string);
 
-				double height_input=Double.parseDouble(height_string);
+				double h_f_c=Double.parseDouble(height_string)/0.032808;
+				double h_i_c=Double.parseDouble(height_inch_cm)/0.39370;
+				double f_i_c=h_f_c+h_i_c;
+				double height_input=f_i_c;
 
 				double weight_input= Double.parseDouble(weight_string);
 
@@ -249,16 +246,18 @@ public class Your_Profile_Fragment extends Activity {
 				bmi_text.setText("You are underweight, so you may need to put on some weight. Your recommended Goal and Macro is Set.");
 				bmi_text.setTextColor(Color.parseColor("#FF5722"));
 				bmi_text.setTypeface(Typeface.MONOSPACE);
-				goal_health=0;
-				goal_diet=1;
+				r_goal_h="Gain Weight";
+				r_goal_d="Zone Macro";
+				
+				
 			}
 			if(bmi_result>=18.5 && bmi_result<=25)
 			{
 				bmi_text.setText("You are at a healthy weight for your height. Your recommended Goal and Macro is Sets.");
 				bmi_text.setTextColor(Color.parseColor("#4CAF50"));
 				bmi_text.setTypeface(Typeface.MONOSPACE);
-				goal_health=2;
-				goal_diet=2;
+				r_goal_h="Maintain Weight";
+				r_goal_d="Zone Macro";
 
 			}
 			if(bmi_result>=25 && bmi_result<=30)
@@ -266,8 +265,8 @@ public class Your_Profile_Fragment extends Activity {
 				bmi_text.setText("You are slightly overweight. You may be advised to lose some weight for health reasons. Your recommended Goal and Macro is Set.");
 				bmi_text.setTextColor(Color.parseColor("#FFA000"));
 				bmi_text.setTypeface(Typeface.MONOSPACE);
-				goal_health=1;
-				goal_diet=2;
+				r_goal_h="Loss Weight";
+				r_goal_d="Low Carb Macro";
 
 			}
 			if(bmi_result>30)
@@ -275,16 +274,16 @@ public class Your_Profile_Fragment extends Activity {
 				bmi_text.setText("You are heavily overweight. Your health may be at risk if you do not lose weight. Your recommended Goal and Macro is Set.");
 				bmi_text.setTextColor(Color.parseColor("#D32F2F"));
 				bmi_text.setTypeface(Typeface.MONOSPACE);
-				goal_health=1;
-				goal_diet=0;
+				r_goal_h="Loss Weight";
+				r_goal_d="Ketogenic Macro";
 
 
 			}
 
 
 			SharedPreferences.Editor editor_goal_health = sharedpreferences.edit();
-			editor_goal_health.putInt("goal_health_position", goal_health);
-			editor_goal_health.putInt("diet_key", goal_diet);
+			editor_goal_health.putString("goal_health_position", r_goal_h);
+			editor_goal_health.putString("diet_key", r_goal_d);
 			editor_goal_health.commit();
 			btw.setText("View Result");
 

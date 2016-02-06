@@ -2,6 +2,7 @@ package at.fhjoanneum.ima.project.musclerebbot;
 
 
 
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -26,10 +27,10 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
-		
+
 	}
-	
-	
+
+
 
 	public void mainMenuButtonOnClick(View view) {
 		switch (view.getId()) {
@@ -57,21 +58,29 @@ public class MainActivity extends Activity {
 			Intent i_todayse = new Intent(this, TodaysTraining.class);
 			startActivity(i_todayse);
 			break;
-			
+
 		case R.id.credtits_button:
 			Intent i_credits = new Intent(this, Credits.class);
 			startActivity(i_credits);
 			break;
-		
+
+
+
+
 
 		}
-	
+
 
 	}
 	public void buttonClickFunction(View v)
 	{
-	            Intent intent = new Intent(this, Your_Profile_Fragment.class);
-	            startActivity(intent);
-	        }
+		Intent intent = new Intent(this, Your_Profile_Fragment.class);
+		startActivity(intent);
+	}
+	public void workout_plan(View v)
+	{
+		Intent intent = new Intent(this, Weightgain_week1_day1.class);
+		startActivity(intent);
+	}
 
 }

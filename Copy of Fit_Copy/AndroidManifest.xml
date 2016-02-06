@@ -163,6 +163,12 @@
             android:name="at.fhjoanneum.ima.project.musclerebbot.Nutrition"
             android:parentActivityName="at.fhjoanneum.ima.project.musclerebbot.Your_Profile_Fragment" >
         </activity>
+        <activity android:name="at.fhjoanneum.ima.project.musclerebbot.Mass_building" >
+        </activity>
+        <activity
+            android:name="at.fhjoanneum.ima.project.musclerebbot.Weightgain_week1_day1"
+            android:parentActivityName="at.fhjoanneum.ima.project.musclerebbot.MainActivity" >
+        </activity>
     </application>
 
 </manifest>
