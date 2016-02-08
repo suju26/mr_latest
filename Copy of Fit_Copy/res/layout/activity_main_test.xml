@@ -10,19 +10,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="0.0dip" >
 
-        <TextView
-            android:id="@+id/introduction"
+        <ViewFlipper
+            android:id="@+id/image1"
             android:layout_width="fill_parent"
-            android:layout_height="324dp"
-            android:background="@drawable/ripple"
-            android:gravity="center_horizontal"
-            android:padding="10.0dip"
-            android:text="Keep it Simple"
-            android:textColor="#D32F2F"
-            android:typeface="monospace" />
+            android:layout_height="300dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:src="@drawable/g1" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,6 +39,8 @@
             android:paddingLeft="10sp"
             android:text="Getting Started"
             android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:typeface="monospace" />
 
         <Button
@@ -55,6 +54,8 @@
             android:paddingLeft="10sp"
             android:text="Workout Plan"
             android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:typeface="monospace" >
         </Button>
     </LinearLayout>
@@ -74,8 +75,10 @@
             android:background="@drawable/ripple"
             android:onClick="mainMenuButtonOnClick"
             android:paddingLeft="10sp"
-            android:text="Exercise Instruction"
+            android:text="Exercise Step"
             android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:typeface="monospace" />
 
         <Button
@@ -88,6 +91,8 @@
             android:paddingLeft="10sp"
             android:text="Body Profile"
             android:textColor="#D32F2F"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:typeface="monospace" />
     </LinearLayout>
 

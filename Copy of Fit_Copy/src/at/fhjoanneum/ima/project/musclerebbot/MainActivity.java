@@ -4,14 +4,35 @@ package at.fhjoanneum.ima.project.musclerebbot;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.view.GestureDetector;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Gallery;
 import at.fhjoanneum.ima.project.getfit.R;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 public class MainActivity extends Activity {
+	ViewFlipper mViewFlipper;
+	private GestureDetector mGestureDetector;
+
+	//Images List
+	Integer[] imageIDs={
+
+			R.drawable.g1,
+			R.drawable.g2
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +40,23 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main_test);
 		ActionBar actionBar = getActionBar();
 		actionBar.show();
+		mViewFlipper = (ViewFlipper) findViewById(R.id.image1);
+		mViewFlipper.startFlipping();
+
+		// Add all the images to the ViewFlipper
+		for (int i = 0; i < imageIDs.length; i++) {
+			ImageView imageView = new ImageView(this);
+			imageView.setImageResource(imageIDs[i]);
+			mViewFlipper.addView(imageView);
+		}
+		// Set in/out flipping animations
+		mViewFlipper.setInAnimation(this, android.R.anim.fade_in);
+		mViewFlipper.setOutAnimation(this, android.R.anim.fade_out);
+
+		CustomGestureDetector customGestureDetector = new CustomGestureDetector();
+		mGestureDetector = new GestureDetector(this, customGestureDetector);
+
+
 
 	}
 
@@ -86,5 +124,29 @@ public class MainActivity extends Activity {
 	public void onBackPressed() {
 		finish();
 	}
+	class CustomGestureDetector extends GestureDetector.SimpleOnGestureListener {
 
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+			// Swipe left (next)
+			if (e1.getX() > e2.getX()) {
+				mViewFlipper.showNext();
+			}
+
+			// Swipe right (previous)
+			if (e1.getX() < e2.getX()) {
+				mViewFlipper.showPrevious();
+			}
+
+			return super.onFling(e1, e2, velocityX, velocityY);
+		}
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		mGestureDetector.onTouchEvent(event);
+
+		return super.onTouchEvent(event);
+	}
 }

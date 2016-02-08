@@ -11,18 +11,24 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 import at.fhjoanneum.ima.project.getfit.R;
+import at.fhjoanneum.ima.project.musclerebbot.MainActivity.CustomGestureDetector;
 
 
 
@@ -41,11 +47,21 @@ public class Your_Profile_Fragment extends Activity {
 	double height_ft_to_cm,height_inch_cm,age_input,height_input,weight_input,cm_to_meter,bmi_result;
 	String age_text_view,weight_string;
 	TextView bmi_text;
-	
 	Button btw;
-	
 	String r_goal_h,r_goal_d;
-	public Your_Profile_Fragment(){}
+
+	private ViewFlipper mViewFlipper;
+	private GestureDetector mGestureDetector;
+	//Images List
+	Integer[] imageIDs={
+
+			R.drawable.g1,
+			R.drawable.g2
+	};
+	public Your_Profile_Fragment(){
+
+
+	}
 
 
 
@@ -55,11 +71,6 @@ public class Your_Profile_Fragment extends Activity {
 
 		setContentView(R.layout.fragment_your_profile);
 		bmi_text=(TextView)findViewById(R.id.bmi_result);
-		//Shared Prefferance
-
-		/*String age_saved=sharedpreferences.getString("age_key", "");
-		age.setText(age_saved);*/
-
 		Spinner activity_spinner = (Spinner)findViewById(R.id.spinnerprofile_ui_activity);
 		List<String> setactivity = new ArrayList<String>();
 		setactivity.add("Select Your Activity Level");
@@ -81,10 +92,13 @@ public class Your_Profile_Fragment extends Activity {
 		spinneractivity = (Spinner)findViewById(R.id.spinnerprofile_ui_activity);
 		spinneractivity.setOnItemSelectedListener(new OnItemSelectedListener() {
 
+
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				selected_Activity_level=parent.getItemAtPosition(position).toString();	
+				InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+				imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 			}
 
 			@Override
@@ -130,7 +144,21 @@ public class Your_Profile_Fragment extends Activity {
 			}
 		});
 
+		mViewFlipper = (ViewFlipper) findViewById(R.id.your_profile_viewflipper);
+		mViewFlipper.startFlipping();
 
+		// Add all the images to the ViewFlipper
+		for (int i = 0; i < imageIDs.length; i++) {
+			ImageView imageView = new ImageView(this);
+			imageView.setImageResource(imageIDs[i]);
+			mViewFlipper.addView(imageView);
+		}
+		// Set in/out flipping animations
+		mViewFlipper.setInAnimation(this, android.R.anim.fade_in);
+		mViewFlipper.setOutAnimation(this, android.R.anim.fade_out);
+
+		CustomGestureDetector customGestureDetector = new CustomGestureDetector();
+		mGestureDetector = new GestureDetector(this, customGestureDetector);
 
 
 
@@ -145,73 +173,74 @@ public class Your_Profile_Fragment extends Activity {
 		String height_inch_cm=height_inch.getText().toString();
 		String weight_string=weight.getText().toString();
 
-			if(selected_Activity_level.equals("Select Your Activity Level"))
+		if(selected_Activity_level.equals("Select Your Activity Level"))
+		{
+			Toast.makeText(this, "Please Select your Activity Level",
+					Toast.LENGTH_SHORT).show();
+		}else{
+			double age_input= Double.parseDouble(age_string);
+
+			double h_f_c=Double.parseDouble(height_string)/0.032808;
+			double h_i_c=Double.parseDouble(height_inch_cm)/0.39370;
+			double f_i_c=h_f_c+h_i_c;
+			double height_input=f_i_c;
+
+			double weight_input= Double.parseDouble(weight_string);
+
+			//BMR Calculation 
+
+			int selectedId=radiogender.getCheckedRadioButtonId();
+			radioSexButton=(RadioButton)findViewById(selectedId);
+			if(radioSexButton.getText().equals("Male")){
+				bmr=10*weight_input+6.25*height_input-5*age_input+5;
+			}
+			if(radioSexButton.getText().equals("Female"))
 			{
-				Toast.makeText(this, "Please Select your Activity Level",
-						Toast.LENGTH_SHORT).show();
-			}else{
-				double age_input= Double.parseDouble(age_string);
-
-				double h_f_c=Double.parseDouble(height_string)/0.032808;
-				double h_i_c=Double.parseDouble(height_inch_cm)/0.39370;
-				double f_i_c=h_f_c+h_i_c;
-				double height_input=f_i_c;
-
-				double weight_input= Double.parseDouble(weight_string);
-
-				//BMR Calculation 
-
-				int selectedId=radiogender.getCheckedRadioButtonId();
-				radioSexButton=(RadioButton)findViewById(selectedId);
-				if(radioSexButton.getText().equals("Male")){
-					bmr=10*weight_input+6.25*height_input-5*age_input+5;
-				}
-				if(radioSexButton.getText().equals("Female"))
-				{
-					bmr=10*weight_input+6.25*height_input-5*age_input-161;
-
-				}
-
-
-
-				if(selected_Activity_level.equals("Little to no exercise"))
-				{
-					tdde=bmr*1.2;
-				}
-				if(selected_Activity_level.equals("3 time per week"))
-				{
-					tdde=bmr*1.375;
-				}
-				if(selected_Activity_level.equals("5 time per week"))
-				{
-					tdde=bmr*1.55;
-				}
-				if(selected_Activity_level.equals("Daily Exercise and physical job"))
-				{
-					tdde=bmr*1.725;
-				}
-				String final_tdde=Double.toString(Math.round(tdde));
-
-				SharedPreferences.Editor editor = sharedpreferences.edit();
-				editor.putString("bmr_key", final_tdde);
-				editor.putString("age_key",age_string );
-				editor.putString("weight_key",weight_string );
-				editor.putString("height_key", height_string);
-				if(selectedId == R.id.profile_ui_male_radio)
-					editor.putBoolean("is_male", true);
-				else
-					editor.putBoolean("is_male", false);
-
-				editor.commit();
-
-				startActivity(new Intent(this,Nutrition.class));
-				finish();
+				bmr=10*weight_input+6.25*height_input-5*age_input-161;
 
 			}
+
+
+
+			if(selected_Activity_level.equals("Little to no exercise"))
+			{
+				tdde=bmr*1.2;
+			}
+			if(selected_Activity_level.equals("3 time per week"))
+			{
+				tdde=bmr*1.375;
+			}
+			if(selected_Activity_level.equals("5 time per week"))
+			{
+				tdde=bmr*1.55;
+			}
+			if(selected_Activity_level.equals("Daily Exercise and physical job"))
+			{
+				tdde=bmr*1.725;
+			}
+			String final_tdde=Double.toString(Math.round(tdde));
+
+			SharedPreferences.Editor editor = sharedpreferences.edit();
+			editor.putString("bmr_key", final_tdde);
+			editor.putString("age_key",age_string );
+			editor.putString("weight_key",weight_string );
+			editor.putString("height_key", height_string);
+			if(selectedId == R.id.profile_ui_male_radio)
+				editor.putBoolean("is_male", true);
+			else
+				editor.putBoolean("is_male", false);
+
+			editor.commit();
+
+			startActivity(new Intent(this,Nutrition.class));
+			finish();
+
 		}
-	
+	}
+
 	public void bmi_calculation() {
 
+		mViewFlipper.setVisibility(View.GONE);		
 		String height_ft_textview=height_ft.getText().toString();
 		String height_inch_textview=height_inch.getText().toString();
 		age_text_view=age.getText().toString();
@@ -248,8 +277,8 @@ public class Your_Profile_Fragment extends Activity {
 				bmi_text.setTypeface(Typeface.MONOSPACE);
 				r_goal_h="Gain Weight";
 				r_goal_d="Zone Macro";
-				
-				
+
+
 			}
 			if(bmi_result>=18.5 && bmi_result<=25)
 			{
@@ -286,6 +315,8 @@ public class Your_Profile_Fragment extends Activity {
 			editor_goal_health.putString("diet_key", r_goal_d);
 			editor_goal_health.commit();
 			btw.setText("View Result");
+			btw.setTextSize(40);
+			btw.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
 
 		}
 	}
@@ -301,6 +332,30 @@ public class Your_Profile_Fragment extends Activity {
 		startActivity(i_back_to_main);
 		finish();
 	}
+	class CustomGestureDetector extends GestureDetector.SimpleOnGestureListener {
 
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+			// Swipe left (next)
+			if (e1.getX() > e2.getX()) {
+				mViewFlipper.showNext();
+			}
+
+			// Swipe right (previous)
+			if (e1.getX() < e2.getX()) {
+				mViewFlipper.showPrevious();
+			}
+
+			return super.onFling(e1, e2, velocityX, velocityY);
+		}
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		mGestureDetector.onTouchEvent(event);
+
+		return super.onTouchEvent(event);
+	}
 }
 

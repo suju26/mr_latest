@@ -37,11 +37,10 @@
                 <Button
                     android:id="@id/profile_help"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/ripple"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/help"
                     android:onClick="first_panel_help"
-                    android:text="!"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="#D32F2F" />
             </LinearLayout>
@@ -67,8 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2.0"
                     android:ems="10"
-                    android:inputType="number"
-                    android:selectAllOnFocus="true" />
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
@@ -243,6 +241,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
+                <ViewFlipper
+                    android:id="@+id/your_profile_viewflipper"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/g1" />
+
                 <TextView
                     android:id="@id/bmi_result"
                     android:layout_width="fill_parent"
@@ -270,6 +276,8 @@
             android:onClick="bmi_calculation"
             android:padding="10.0dip"
             android:text="Done"
+            android:textSize="40sp"
+            android:textStyle="bold"
             android:textColor="#D32F2F" />
     </LinearLayout>
 
