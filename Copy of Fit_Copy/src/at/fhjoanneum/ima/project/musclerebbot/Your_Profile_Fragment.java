@@ -55,8 +55,11 @@ public class Your_Profile_Fragment extends Activity {
 	//Images List
 	Integer[] imageIDs={
 
-			R.drawable.g1,
-			R.drawable.g2
+			R.drawable.w6,
+			R.drawable.w7,
+			R.drawable.w8,
+			R.drawable.w9
+			
 	};
 	public Your_Profile_Fragment(){
 
@@ -129,6 +132,9 @@ public class Your_Profile_Fragment extends Activity {
 
 
 		btw=(Button)findViewById(R.id.bmi_cal);
+		Typeface font = Typeface.createFromAsset(this.getAssets(), "UrbanJungleDEMO.otf");
+        btw.setTypeface(font);
+		
 		btw.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -146,6 +152,7 @@ public class Your_Profile_Fragment extends Activity {
 
 		mViewFlipper = (ViewFlipper) findViewById(R.id.your_profile_viewflipper);
 		mViewFlipper.startFlipping();
+		mViewFlipper.setFlipInterval(3000);
 
 		// Add all the images to the ViewFlipper
 		for (int i = 0; i < imageIDs.length; i++) {
@@ -154,8 +161,8 @@ public class Your_Profile_Fragment extends Activity {
 			mViewFlipper.addView(imageView);
 		}
 		// Set in/out flipping animations
-		mViewFlipper.setInAnimation(this, android.R.anim.fade_in);
-		mViewFlipper.setOutAnimation(this, android.R.anim.fade_out);
+		mViewFlipper.setInAnimation(this, android.R.anim.slide_out_right);
+		mViewFlipper.setOutAnimation(this, android.R.anim.slide_in_left);
 
 		CustomGestureDetector customGestureDetector = new CustomGestureDetector();
 		mGestureDetector = new GestureDetector(this, customGestureDetector);
@@ -315,8 +322,8 @@ public class Your_Profile_Fragment extends Activity {
 			editor_goal_health.putString("diet_key", r_goal_d);
 			editor_goal_health.commit();
 			btw.setText("View Result");
-			btw.setTextSize(40);
-			btw.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+			
+			
 
 		}
 	}

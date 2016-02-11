@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white" >
+    android:background="@drawable/bg_color" >
 
     <LinearLayout
         android:id="@id/card_parent_layout"
@@ -58,6 +58,8 @@
                     android:layout_gravity="bottom"
                     android:layout_weight="1.0"
                     android:text="@string/label_age"
+                    android:fontFamily="monospace"
+                    android:typeface="monospace"
                     android:textAppearance="?android:textAppearanceMedium" />
 
                 <EditText
@@ -275,10 +277,8 @@
             android:background="@drawable/ripple"
             android:onClick="bmi_calculation"
             android:padding="10.0dip"
-            android:text="Done"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:textColor="#D32F2F" />
+            android:text="Done" 
+            android:textSize="25dip"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white" >
+    android:background="@drawable/bg_color" >
 
     <LinearLayout
         android:id="@+id/macro"
@@ -26,8 +26,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@android:color/black" />
         </LinearLayout>
-        
-        
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -301,16 +300,6 @@
                     android:animateLayoutChanges="true"
                     android:orientation="vertical"
                     android:padding="5.0dip" >
-
-                    <Button
-                        android:id="@+id/btn_save_macro"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#635fd0"
-                        android:padding="5.0dip"
-                        android:text="Save Now"
-                        android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@android:color/white" />
 
                     <View
                         android:id="@id/view1"

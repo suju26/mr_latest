@@ -16,11 +16,14 @@ import android.widget.Gallery;
 import at.fhjoanneum.ima.project.getfit.R;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends Activity {
@@ -30,8 +33,13 @@ public class MainActivity extends Activity {
 	//Images List
 	Integer[] imageIDs={
 
-			R.drawable.g1,
-			R.drawable.g2
+			R.drawable.m1,
+			R.drawable.m2,
+			R.drawable.m3,
+			R.drawable.m4,
+			R.drawable.m5,
+			R.drawable.m6
+
 	};
 
 	@Override
@@ -42,6 +50,7 @@ public class MainActivity extends Activity {
 		actionBar.show();
 		mViewFlipper = (ViewFlipper) findViewById(R.id.image1);
 		mViewFlipper.startFlipping();
+		mViewFlipper.setFlipInterval(5000);
 
 		// Add all the images to the ViewFlipper
 		for (int i = 0; i < imageIDs.length; i++) {
@@ -55,6 +64,15 @@ public class MainActivity extends Activity {
 
 		CustomGestureDetector customGestureDetector = new CustomGestureDetector();
 		mGestureDetector = new GestureDetector(this, customGestureDetector);
+		Typeface font = Typeface.createFromAsset(this.getAssets(), "BebasNeue.otf");
+		Button your_profile_txt=(Button)findViewById(R.id.your_profile);
+		Button credit_button_txt=(Button)findViewById(R.id.credtits_button);
+		Button ex_button_txt=(Button)findViewById(R.id.exercise_button);
+		Button bodyprofile_button_txt=(Button)findViewById(R.id.body_profile_button);
+		your_profile_txt.setTypeface(font);
+		credit_button_txt.setTypeface(font);
+		ex_button_txt.setTypeface(font);
+		bodyprofile_button_txt.setTypeface(font);
 
 
 
@@ -117,8 +135,9 @@ public class MainActivity extends Activity {
 	}
 	public void workout_plan(View v)
 	{
-		Intent intent = new Intent(this, Weightgain_week1_day1.class);
+		Intent intent = new Intent(this, Workout_plan.class);
 		startActivity(intent);
+		finish();
 	}
 	@Override
 	public void onBackPressed() {
@@ -145,8 +164,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+	
 		mGestureDetector.onTouchEvent(event);
-
 		return super.onTouchEvent(event);
+
 	}
 }

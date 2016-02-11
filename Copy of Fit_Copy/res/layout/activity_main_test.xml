@@ -2,9 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg_color"
     android:orientation="vertical"
     tools:context=".MainActivity" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -22,6 +27,11 @@
             android:src="@drawable/g1" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
     <LinearLayout
         android:id="@+id/first_row"
         android:layout_width="match_parent"
@@ -38,10 +48,9 @@
             android:onClick="buttonClickFunction"
             android:paddingLeft="10sp"
             android:text="Getting Started"
-            android:textColor="#D32F2F"
+            android:textColor="#263238"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:typeface="monospace" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/credtits_button"
@@ -52,8 +61,8 @@
             android:background="@drawable/ripple"
             android:onClick="workout_plan"
             android:paddingLeft="10sp"
-            android:text="Workout Plan"
-            android:textColor="#D32F2F"
+            android:text="Training Calender"
+            android:textColor="#263238"
             android:textSize="25sp"
             android:textStyle="bold"
             android:typeface="monospace" >
@@ -76,7 +85,7 @@
             android:onClick="mainMenuButtonOnClick"
             android:paddingLeft="10sp"
             android:text="Exercise Step"
-            android:textColor="#D32F2F"
+            android:textColor="#263238"
             android:textSize="25sp"
             android:textStyle="bold"
             android:typeface="monospace" />
@@ -90,7 +99,29 @@
             android:onClick="mainMenuButtonOnClick"
             android:paddingLeft="10sp"
             android:text="Body Profile"
-            android:textColor="#D32F2F"
+            android:textColor="#263238"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/nutrition_plan"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"
+            android:background="@drawable/ripple"
+            android:onClick="mainMenuButtonOnClick"
+            android:paddingLeft="10sp"
+            android:text="DIET PlAN"
+            android:textColor="#263238"
             android:textSize="25sp"
             android:textStyle="bold"
             android:typeface="monospace" />

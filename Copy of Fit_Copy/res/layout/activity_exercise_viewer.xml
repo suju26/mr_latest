@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg_color"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:scrollbars="none" >
@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/bg_color"
         android:orientation="vertical"
         tools:context=".ExerciseViewer" >
 
@@ -18,7 +18,7 @@
             android:id="@+id/exersice_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#D32F2F"
+            android:textColor="#546E7A"
             android:textSize="30sp"
             android:typeface="monospace" />
 
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/equipment"
-            android:textColor="#D32F2F"
+            android:textColor="#546E7A"
             android:textSize="25sp"
             android:typeface="monospace" />
 
@@ -48,14 +48,15 @@
             android:id="@+id/exersice_equipment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="20sp" 
+            android:typeface="monospace"/>
 
         <TextView
             android:id="@+id/title_steps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/steps"
-            android:textColor="#D32F2F"
+            android:textColor="#546E7A"
             android:textSize="25sp"
             android:typeface="monospace" />
 
@@ -63,14 +64,15 @@
             android:id="@+id/exersice_steps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/title_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tips"
-            android:textColor="#D32F2F"
+            android:textColor="#546E7A"
             android:textSize="25sp"
             android:typeface="monospace" />
 
@@ -78,7 +80,8 @@
             android:id="@+id/exersice_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:typeface="monospace" />
     </LinearLayout>
 
 </ScrollView>

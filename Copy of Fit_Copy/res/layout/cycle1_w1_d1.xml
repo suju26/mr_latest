@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_color" >
+
+    <LinearLayout
+        android:id="@id/card_parent_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="5.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week1"
+                android:padding="10.0dip"
+                android:text="DAY 1 - LEGS / ABS"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week2"
+                android:padding="10.0dip"
+                android:text="DAY 2 - REST"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week3"
+                android:padding="10.0dip"
+                android:text="DAY 3 - SHOULDER / TRAPS"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week4"
+                android:padding="10.0dip"
+                android:text="DAY 4 - BICEPS / TRICEPS"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week5"
+                android:padding="10.0dip"
+                android:text="DAY 5 - REST"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week5"
+                android:padding="10.0dip"
+                android:text="DAY 6 - CHEST / BACK"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0.0dip" >
+
+            <Button
+                android:id="@+id/cycle7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ripple"
+                android:fontFamily="monospace"
+                android:onClick="week5"
+                android:padding="10.0dip"
+                android:text="DAY 7 - REST"
+                android:textSize="18dip"
+                android:typeface="monospace" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
